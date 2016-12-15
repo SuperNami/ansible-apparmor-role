@@ -1,0 +1,7 @@
+---
+- name: activate apparmor nginx profile in complain mode
+  command: aa-complain /etc/apparmor.d/usr.sbin.nginx
+
+
+- name: activate apparmor php5 profile in complain mode
+  command: aa-complain /etc/apparmor.d/usr.sbin.php5-fpm

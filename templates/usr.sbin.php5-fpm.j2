@@ -1,0 +1,25 @@
+#include <tunables/global>
+
+/usr/sbin/php5-fpm {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/php5>
+
+    capability kill,
+    capability setgid,
+    capability setuid,
+
+    /etc/php5/** r,
+    /proc/*/auxv r,
+    /proc/sys/kernel/ngroups_max r,
+    /var/run/mysqld/mysqld.sock rw,
+    /var/run/php5-fpm.pid rw,
+    /var/run/php5-fpm.sock w,
+    /var/www/** r,
+    /var/www/*/wp-content/** rw,
+    /var/www/html/wp-content/cache/** rwk,
+    /usr/sbin/php5-fpm mrix,
+    /var/log/php5-fpm.log* w,
+    /tmp/** rwk,
+    /tmp/ r,
+}

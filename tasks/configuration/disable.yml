@@ -1,0 +1,46 @@
+---
+- name: disable apparmor dhcp client profile
+  file: src=/etc/apparmor.d/sbin.dhclient
+        dest=/etc/apparmor.d/disable/sbin.dhclient
+        state=link
+
+- name: parse apparmor dhcp client profile
+  command: apparmor_parser -R /etc/apparmor.d/sbin.dhclient
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: disable apparmor ntpd profile
+  file: src=/etc/apparmor.d/usr.sbin.ntpd
+        dest=/etc/apparmor.d/disable/usr.sbin.ntpd
+        state=link
+
+- name: parse apparmor ntpd profile
+  command: apparmor_parser -R /etc/apparmor.d/usr.sbin.ntpd
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: disable apparmor rsyslogd profile
+  file: src=/etc/apparmor.d/usr.sbin.rsyslogd
+        dest=/etc/apparmor.d/disable/usr.sbin.rsyslogd
+        state=link
+
+- name: parse apparmor rsyslogd profile
+  command: apparmor_parser -R /etc/apparmor.d/usr.sbin.rsyslogd
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: disable apparmor tcpdump profile
+  file: src=/etc/apparmor.d/usr.sbin.tcpdump
+        dest=/etc/apparmor.d/disable/usr.sbin.tcpdump
+        state=link
+
+- name: parse apparmor tcpdump profile
+  command: apparmor_parser -R /etc/apparmor.d/usr.sbin.tcpdump
+  notify: reload apparmor
+  ignore_errors: yes

@@ -1,0 +1,27 @@
+---
+- include: install/apparmor.yml
+  tags: apparmor
+
+
+- include: install/profiles.yml
+  tags: apparmor_profiles
+
+
+- include: state/enabled.yml
+  tags: apparmor_enabled
+
+
+- include: state/disabled.yml
+  tags: apparmor_disabled
+
+
+- include: configuration/enable.yml
+  tags: apparmor_enable_profiles
+
+
+- include: configuration/disable.yml
+  tags: apparmor_disable_profiles
+
+
+- include: configuration/complain.yml
+  tags: apparmor_complain_profiles

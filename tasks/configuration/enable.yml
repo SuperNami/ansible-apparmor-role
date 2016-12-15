@@ -1,0 +1,42 @@
+---
+- name: remove apparmor dhcp client symbolic link
+  file: dest=/etc/apparmor.d/disable/sbin.dhclient
+        state=absent
+
+- name: parse apparmor dhcp client profile
+  command: cat /etc/apparmor.d/sbin.dhclient | sudo apparmor_parser -a
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: remove apparmor ntpd symbolic link
+  file: dest=/etc/apparmor.d/disable/usr.sbin.ntpd
+        state=absent
+
+- name: parse apparmor ntpd profile
+  command: cat /etc/apparmor.d/usr.sbin.ntpd | sudo apparmor_parser -a
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: remove apparmor rsyslogd symbolic link
+  file: dest=/etc/apparmor.d/disable/usr.sbin.rsyslogd
+        state=absent
+
+- name: parse apparmor rsyslogd profile
+  command: cat /etc/apparmor.d/usr.sbin.rsyslogd | sudo apparmor_parser -a
+  notify: reload apparmor
+  ignore_errors: yes
+
+
+
+- name: remove apparmor tcpdump symbolic link
+  file: dest=/etc/apparmor.d/disable/usr.sbin.tcpdump
+        state=absent
+
+- name: parse apparmor tcpdump profile
+  command: cat /etc/apparmor.d/usr.sbin.tcpdump | sudo apparmor_parser -a
+  notify: reload apparmor
+  ignore_errors: yes

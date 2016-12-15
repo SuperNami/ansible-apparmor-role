@@ -1,0 +1,26 @@
+#include <tunables/global>
+
+/usr/sbin/nginx {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/nis>
+
+  capability dac_override,
+  capability dac_read_search,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+
+  owner {{ nginx_root }}/** r,
+  owner /etc/ssl/openssl.cnf r,
+  /var/lib/certificates/* r,
+  owner /var/log/nginx/* a,
+  {{ nginx_log_path }}* w,
+  owner /var/run/nginx.pid rw,
+  /var/www/** r,
+  /usr/local/lib/lib*so* mr,
+  /usr/sbin/nginx mr,
+  /proc/*/auxv r,
+  /var/run/php5-fpm.sock rw,
+  /usr/sbin/nginx mr,
+}

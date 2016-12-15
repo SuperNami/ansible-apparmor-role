@@ -1,0 +1,15 @@
+---
+- name: copy nginx apparmor profile
+  template: src=roles/apparmor/templates/usr.sbin.nginx.j2
+            dest=/etc/apparmor.d/usr.sbin.nginx
+            owner=root
+            group=root
+            mode=0644
+
+
+- name: copy php5-fpm apparmor profile
+  template: src=roles/apparmor/templates/usr.sbin.php5-fpm.j2
+            dest=/etc/apparmor.d/usr.sbin.php5-fpm
+            owner=root
+            group=root
+            mode=0644

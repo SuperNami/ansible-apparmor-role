@@ -1,0 +1,4 @@
+---
+- name: enable apparmor at startup
+  command: update-rc.d apparmor defaults
+  notify: start apparmor

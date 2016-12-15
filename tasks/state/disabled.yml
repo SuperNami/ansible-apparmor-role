@@ -1,0 +1,4 @@
+---
+- name: disable apparmor at startup
+  command: update-rc.d -f apparmor remove
+  notify: stop apparmor
