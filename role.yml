@@ -2,5 +2,6 @@
 - name: apparmor
   hosts: all
   user: root
+  #become: true
   roles:
   - apparmor
